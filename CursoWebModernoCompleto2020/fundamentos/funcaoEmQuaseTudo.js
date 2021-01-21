@@ -2,4 +2,3 @@ console.log(typeof Object)      // Conceito de que quase tudo em JS é uma funç
 
 class Produto {}
 console.log(typeof Produto)
-
