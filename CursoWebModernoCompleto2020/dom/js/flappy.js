@@ -1,5 +1,3 @@
-const _ = require("lodash")
-
 function novoElemento(tagName, className) {
     const elem = document.createElement(tagName)
     elem.className = className
@@ -153,7 +151,7 @@ function FlappyBird() {
     const largura = areaDoJogo.clientWidth
 
     const progresso = new Progresso()
-    const barreiras = new Barreiras(altura, largura, 200, 400,
+    const barreiras = new Barreiras(altura, largura, 200, 600,
         () => progresso.atualizarPontos(++pontos))
     const passaro = new Passaro(altura)
 
