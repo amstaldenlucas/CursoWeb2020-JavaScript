@@ -6,8 +6,6 @@ app.use(express.static('.'))
 app.use(bodyParser.urlencoded({ extended: true }))
 app.use(bodyParser.json())
 
-app.get('/teste', (req, res) => res.send('Ok'))
-
 const multer = require('multer')
 
 const storage = multer.diskStorage({
@@ -30,4 +28,20 @@ app.post('/upload', (req, res) => {
     })
 })
 
+app.post('/formulario', (req, res) => {
+    res.send({
+        ...req.body,
+        id: 7
+    })
+})
+
+app.get('/parOuImpar', (req, res) => {
+    // req.body
+    // req.query
+    // req,params
+    const par = parseInt(req.query.numero) % 2 === 0
+    res.send({
+        resultado: par ? 'par' : 'impar'
+    })
+})
 app.listen(8080, () => console.log('Executando....'))

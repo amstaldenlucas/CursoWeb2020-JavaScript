@@ -14,6 +14,30 @@
     <div id="post"></div>
 
     <script>
-        // ...
+        function exibirResultado(id, dados) {
+            const texto = JSON.stringify(dados)
+            document.getElementById(id).innerHTML = texto
+        }
+
+        axios.get('parOuImpar', {
+            params: {
+                numero: 5
+            }
+        }).then(resp => exibirResultado('get', resp.data))
+
+        /* Enviando objeto direto no método */
+        // axios.post('formulario', {
+        //     nome: 'João',
+        //     sobrenome: 'Silva'
+        // }).then(resp => exibirResultado('post', resp.data))
+
+        const form = {
+            nome: 'Lucas',
+            sobrenome: 'Amstalden'
+        }
+        /* Criando objeto e passado pro método */
+        axios.post('formulario', form)
+            .then(resp => exibirResultado('post', resp.data))
+
     </script>
 </body>
